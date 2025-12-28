@@ -1,0 +1,61 @@
+@model IEnumerable<intproje.Mvc.Models.Applicant>
+
+@{
+    ViewData["Title"] = "Başvurular";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Başvurular</h2>
+        <a asp-action="Create" class="btn btn-primary">
+            <i class="bi bi-plus-circle"></i> Yeni Başvuru Ekle
+        </a>
+    </div>
+
+    @if (Model != null && Model.Any())
+    {
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Ad Soyad</th>
+                        <th>CV Özeti</th>
+                        <th>İlan</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Name</td>
+                            <td>@(item.CvSummary.Length > 100 ? item.CvSummary.Substring(0, 100) + "..." : item.CvSummary)</td>
+                            <td>
+                                @if (item.JobPost != null)
+                                {
+                                    <span class="badge bg-info">@item.JobPost.Title</span>
+                                }
+                                else
+                                {
+                                    <span class="text-muted">-</span>
+                                }
+                            </td>
+                            <td>
+                                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary">Detaylar</a>
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary">Düzenle</a>
+                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-outline-danger">Sil</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info" role="alert">
+            Henüz başvuru bulunmamaktadır. İlk başvuruyu eklemek için <a asp-action="Create">buraya tıklayın</a>.
+        </div>
+    }
+</div>
+

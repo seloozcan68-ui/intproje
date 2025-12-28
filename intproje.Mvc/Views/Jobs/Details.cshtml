@@ -1,0 +1,31 @@
+@model intproje.Mvc.Models.JobPost
+
+@{
+    ViewData["Title"] = "İlan Detayı";
+}
+
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">@Model.Title</h4>
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-3">Şirket:</dt>
+                <dd class="col-sm-9">@(Model.Company?.Name ?? "Bilinmiyor")</dd>
+
+                <dt class="col-sm-3">Açıklama:</dt>
+                <dd class="col-sm-9">@Model.Description</dd>
+            </dl>
+
+            <div class="mt-4">
+                <a asp-action="Apply" asp-route-id="@Model.Id" class="btn btn-success me-2">
+                    <i class="bi bi-send"></i> Bu İlana Başvur
+                </a>
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-secondary me-2">Düzenle</a>
+                <a asp-action="Index" class="btn btn-outline-secondary">Geri Dön</a>
+            </div>
+        </div>
+    </div>
+</div>
+

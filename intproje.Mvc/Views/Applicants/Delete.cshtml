@@ -1,0 +1,47 @@
+@model intproje.Mvc.Models.Applicant
+
+@{
+    ViewData["Title"] = "Başvuru Sil";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card shadow border-danger">
+                <div class="card-header bg-danger text-white">
+                    <h4>Başvuruyu Sil</h4>
+                </div>
+                <div class="card-body">
+                    <h5 class="text-danger">Bu başvuruyu silmek istediğinizden emin misiniz?</h5>
+                    <hr />
+                    <dl class="row">
+                        <dt class="col-sm-3">Ad Soyad:</dt>
+                        <dd class="col-sm-9">@Model.Name</dd>
+
+                        <dt class="col-sm-3">CV Özeti:</dt>
+                        <dd class="col-sm-9">@(Model.CvSummary.Length > 200 ? Model.CvSummary.Substring(0, 200) + "..." : Model.CvSummary)</dd>
+
+                        <dt class="col-sm-3">İlan:</dt>
+                        <dd class="col-sm-9">
+                            @if (Model.JobPost != null)
+                            {
+                                <span class="badge bg-info">@Model.JobPost.Title</span>
+                            }
+                            else
+                            {
+                                <span class="text-muted">-</span>
+                            }
+                        </dd>
+                    </dl>
+
+                    <form asp-action="Delete">
+                        <input type="hidden" asp-for="Id" />
+                        <button type="submit" class="btn btn-danger">Sil</button>
+                        <a asp-action="Index" class="btn btn-secondary">İptal</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

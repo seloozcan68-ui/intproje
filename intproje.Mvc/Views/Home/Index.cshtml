@@ -1,0 +1,72 @@
+﻿@{
+    ViewData["Title"] = "İş Portalı | Ana Sayfa";
+}
+
+<div class="container mt-5">
+    <div class="p-5 mb-4 bg-primary text-white rounded-3 shadow text-center">
+        <h1 class="display-4 fw-bold">Yeni İşin Seni Bekliyor</h1>
+        <p class="fs-4">Şirketler ve adaylar arasındaki köprü.</p>
+        <div class="d-flex justify-content-center mt-4">
+            <input type="text" class="form-control w-50 me-2" placeholder="İş ilanı veya şirket ara...">
+            <button class="btn btn-warning fw-bold">İlan Bul</button>
+        </div>
+    </div>
+
+    <div class="row text-center mb-5">
+        <div class="col-md-4">
+            <div class="p-3 border rounded shadow-sm bg-white">
+                <h3 class="text-primary">150+</h3>
+                <p class="text-muted mb-0">Aktif Şirket</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="p-3 border rounded shadow-sm bg-white">
+                <h3 class="text-primary">500+</h3>
+                <p class="text-muted mb-0">Güncel İlan</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="p-3 border rounded shadow-sm bg-white">
+                <h3 class="text-primary">1200+</h3>
+                <p class="text-muted mb-0">Başvuran Aday</p>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="mb-4 border-bottom pb-2">Öne Çıkan İlanlar</h2>
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm h-100 border-0">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="badge bg-success">Yeni</span>
+                        <small class="text-muted font-weight-bold text-uppercase">Yazılım Teknolojileri A.Ş.</small>
+                    </div>
+                    <h5 class="card-title fw-bold text-dark">ASP.NET Core Geliştirici</h5>
+                    <p class="card-text text-secondary small">C# ve MVC konularında deneyimli, Web API geliştirebilen ekip arkadaşları aranıyor.</p>
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                        <span class="text-muted"><i class="bi bi-geo-alt"></i> İstanbul</span>
+                        <a asp-controller="Jobs" asp-action="Index" class="btn btn-outline-primary btn-sm rounded-pill px-4">İlanları Gör</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm h-100 border-0">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="badge bg-info text-dark">Popüler</span>
+                        <small class="text-muted font-weight-bold text-uppercase">Global Veri Merkezi</small>
+                    </div>
+                    <h5 class="card-title fw-bold text-dark">Veritabanı Mimarı</h5>
+                    <p class="card-text text-secondary small">SQLite ve SQL Server yapılarına hakim, veri güvenliği konusunda uzman.</p>
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                        <span class="text-muted"><i class="bi bi-geo-alt"></i> Ankara / Uzaktan</span>
+                        <a asp-controller="Jobs" asp-action="Index" class="btn btn-outline-primary btn-sm rounded-pill px-4">İlanları Gör</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

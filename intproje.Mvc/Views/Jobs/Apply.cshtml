@@ -1,0 +1,51 @@
+@model intproje.Mvc.Models.Applicant
+
+@{
+    ViewData["Title"] = "Başvuru Yap";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card shadow">
+                <div class="card-header bg-success text-white">
+                    <h4>İş İlanına Başvuru</h4>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-info">
+                        <strong>İlan:</strong> @ViewBag.JobTitle
+                    </div>
+                    
+                    <form asp-action="Apply">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="JobPostId" />
+                        
+                        <div class="form-group mb-3">
+                            <label asp-for="Name" class="control-label">Ad Soyad</label>
+                            <input asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="form-group mb-3">
+                            <label asp-for="CvSummary" class="control-label">CV Özeti</label>
+                            <textarea asp-for="CvSummary" class="form-control" rows="8" placeholder="Kendiniz hakkında kısa bilgi, deneyimleriniz ve yeteneklerinizi buraya yazın..."></textarea>
+                            <span asp-validation-for="CvSummary" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success">
+                                <i class="bi bi-send"></i> Başvuruyu Gönder
+                            </button>
+                            <a asp-action="Details" asp-route-id="@Model.JobPostId" class="btn btn-secondary">İptal</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

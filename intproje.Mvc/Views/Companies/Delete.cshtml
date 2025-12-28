@@ -1,0 +1,35 @@
+@model intproje.Mvc.Models.Company
+
+@{
+    ViewData["Title"] = "Şirket Sil";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card shadow border-danger">
+                <div class="card-header bg-danger text-white">
+                    <h4>Şirketi Sil</h4>
+                </div>
+                <div class="card-body">
+                    <h5 class="text-danger">Bu şirketi silmek istediğinizden emin misiniz?</h5>
+                    <hr />
+                    <dl class="row">
+                        <dt class="col-sm-4">Şirket Adı:</dt>
+                        <dd class="col-sm-8">@Model.Name</dd>
+
+                        <dt class="col-sm-4">Sektör:</dt>
+                        <dd class="col-sm-8">@Model.Sector</dd>
+                    </dl>
+
+                    <form asp-action="Delete">
+                        <input type="hidden" asp-for="Id" />
+                        <button type="submit" class="btn btn-danger">Sil</button>
+                        <a asp-action="Index" class="btn btn-secondary">İptal</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
