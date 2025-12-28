@@ -7,11 +7,10 @@
         <h1 class="display-4 fw-bold">Yeni İşin Seni Bekliyor</h1>
         <p class="fs-4">Şirketler ve adaylar arasındaki köprü.</p>
         <div class="d-flex justify-content-center mt-4">
-            <input type="text" class="form-control w-50 me-2" placeholder="İş ilanı veya şirket ara...">
-            <form asp-controller="Jobs" asp-action="Index" method="get" class="d-flex justify-content-center mt-4">
-    <input type="text" name="searchString" class="form-control w-50 me-2" placeholder="İş ilanı veya şirket ara...">
-    <button type="submit" class="btn btn-warning fw-bold">İlan Bul</button>
-</form>
+            <form asp-controller="Jobs" asp-action="Index" method="get" class="d-flex w-75">
+                <input type="text" name="searchString" class="form-control form-control-lg me-2" placeholder="İş ilanı veya şirket ara...">
+                <button type="submit" class="btn btn-warning btn-lg fw-bold px-5">İlan Bul</button>
+            </form>
         </div>
     </div>
 

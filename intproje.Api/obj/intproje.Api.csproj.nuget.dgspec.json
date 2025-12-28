@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\seloo\\OneDrive\\Masaüstü\\intproje\\intproje.Api\\intproje.Api.csproj": {}
+    "C:\\Users\\dayku\\OneDrive\\Desktop\\selo\\intproje\\intproje.Api\\intproje.Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\seloo\\OneDrive\\Masaüstü\\intproje\\intproje.Api\\intproje.Api.csproj": {
+    "C:\\Users\\dayku\\OneDrive\\Desktop\\selo\\intproje\\intproje.Api\\intproje.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\seloo\\OneDrive\\Masaüstü\\intproje\\intproje.Api\\intproje.Api.csproj",
+        "projectUniqueName": "C:\\Users\\dayku\\OneDrive\\Desktop\\selo\\intproje\\intproje.Api\\intproje.Api.csproj",
         "projectName": "intproje.Api",
-        "projectPath": "C:\\Users\\seloo\\OneDrive\\Masaüstü\\intproje\\intproje.Api\\intproje.Api.csproj",
-        "packagesPath": "C:\\Users\\seloo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\seloo\\OneDrive\\Masaüstü\\intproje\\intproje.Api\\obj\\",
+        "projectPath": "C:\\Users\\dayku\\OneDrive\\Desktop\\selo\\intproje\\intproje.Api\\intproje.Api.csproj",
+        "packagesPath": "C:\\Users\\dayku\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dayku\\OneDrive\\Desktop\\selo\\intproje\\intproje.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\seloo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dayku\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -63,6 +63,10 @@
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
               "version": "[10.0.1, )"
+            },
+            "Microsoft.OpenApi": {
+              "target": "Package",
+              "version": "[2.3.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
