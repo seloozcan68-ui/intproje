@@ -95,3 +95,4 @@ C:\Users\seloo\OneDrive\Masaüstü\intproje\intproje.Mvc\obj\Debug\net10.0\refin
 C:\Users\seloo\OneDrive\Masaüstü\intproje\intproje.Mvc\obj\Debug\net10.0\intproje.Mvc.pdb
 C:\Users\seloo\OneDrive\Masaüstü\intproje\intproje.Mvc\obj\Debug\net10.0\intproje.Mvc.genruntimeconfig.cache
 C:\Users\seloo\OneDrive\Masaüstü\intproje\intproje.Mvc\obj\Debug\net10.0\ref\intproje.Mvc.dll
+C:\Users\seloo\OneDrive\Masaüstü\intproje\intproje.Mvc\obj\Debug\net10.0\intproje.Mvc.sourcelink.json

@@ -203,3 +203,7 @@ C:\Users\seloo\OneDrive\Masaüstü\intproje\intproje.Api\obj\Debug\net10.0\refin
 C:\Users\seloo\OneDrive\Masaüstü\intproje\intproje.Api\obj\Debug\net10.0\intproje.Api.pdb
 C:\Users\seloo\OneDrive\Masaüstü\intproje\intproje.Api\obj\Debug\net10.0\intproje.Api.genruntimeconfig.cache
 C:\Users\seloo\OneDrive\Masaüstü\intproje\intproje.Api\obj\Debug\net10.0\ref\intproje.Api.dll
+C:\Users\seloo\OneDrive\Masaüstü\intproje\intproje.Api\obj\Debug\net10.0\intproje.Api.sourcelink.json
+C:\Users\seloo\OneDrive\Masaüstü\intproje\intproje.Api\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\seloo\OneDrive\Masaüstü\intproje\intproje.Api\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\seloo\OneDrive\Masaüstü\intproje\intproje.Api\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll

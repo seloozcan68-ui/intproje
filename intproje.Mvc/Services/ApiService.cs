@@ -1,5 +1,6 @@
 using System.Text;
 using System.Text.Json;
+using intproje.Mvc.Models; // JobPost modelini tanıması için şart
 
 namespace intproje.Mvc.Services
 {
@@ -12,7 +13,6 @@ namespace intproje.Mvc.Services
         {
             _httpClient = httpClientFactory.CreateClient();
             
-            // Development ortamında HTTP, production'da HTTPS kullan
             if (environment.IsDevelopment())
             {
                 _apiBaseUrl = configuration["ApiSettings:BaseUrl"] ?? "http://localhost:5101/api";
@@ -22,7 +22,6 @@ namespace intproje.Mvc.Services
                 _apiBaseUrl = configuration["ApiSettings:BaseUrl"] ?? "https://localhost:7188/api";
             }
             
-            // BaseAddress'in sonunda '/' olması gerekiyor, yoksa endpoint birleşirken sorun çıkar
             if (!_apiBaseUrl.EndsWith("/"))
             {
                 _apiBaseUrl += "/";
@@ -31,7 +30,6 @@ namespace intproje.Mvc.Services
             _httpClient.BaseAddress = new Uri(_apiBaseUrl);
         }
 
-        // Company işlemleri
         public async Task<List<T>?> GetAsync<T>(string endpoint)
         {
             try
@@ -40,21 +38,11 @@ namespace intproje.Mvc.Services
                 if (response.IsSuccessStatusCode)
                 {
                     var json = await response.Content.ReadAsStringAsync();
-                    return JsonSerializer.Deserialize<List<T>>(json, new JsonSerializerOptions
-                    {
-                        PropertyNameCaseInsensitive = true
-                    });
+                    return JsonSerializer.Deserialize<List<T>>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
                 }
-                // Hata durumunda log (development için)
-                var errorContent = await response.Content.ReadAsStringAsync();
-                Console.WriteLine($"API Error: {response.StatusCode} - {errorContent} - URL: {_httpClient.BaseAddress}{endpoint}");
                 return null;
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"API Exception: {ex.Message} - URL: {_httpClient.BaseAddress}{endpoint}");
-                return null;
-            }
+            catch (Exception) { return null; }
         }
 
         public async Task<T?> GetByIdAsync<T>(string endpoint, int id)
@@ -63,12 +51,9 @@ namespace intproje.Mvc.Services
             if (response.IsSuccessStatusCode)
             {
                 var json = await response.Content.ReadAsStringAsync();
-                return JsonSerializer.Deserialize<T>(json, new JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true
-                });
+                return JsonSerializer.Deserialize<T>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
             }
-            return default(T);
+            return default;
         }
 
         public async Task<T?> PostAsync<T>(string endpoint, T data)
@@ -77,33 +62,21 @@ namespace intproje.Mvc.Services
             {
                 var json = JsonSerializer.Serialize(data);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
-                
                 var response = await _httpClient.PostAsync(endpoint, content);
                 if (response.IsSuccessStatusCode)
                 {
                     var responseJson = await response.Content.ReadAsStringAsync();
-                    return JsonSerializer.Deserialize<T>(responseJson, new JsonSerializerOptions
-                    {
-                        PropertyNameCaseInsensitive = true
-                    });
+                    return JsonSerializer.Deserialize<T>(responseJson, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
                 }
-                // Hata durumunda log
-                var errorContent = await response.Content.ReadAsStringAsync();
-                Console.WriteLine($"API POST Error: {response.StatusCode} - {errorContent} - URL: {_httpClient.BaseAddress}{endpoint}");
-                return default(T);
+                return default;
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"API POST Exception: {ex.Message} - URL: {_httpClient.BaseAddress}{endpoint}");
-                return default(T);
-            }
+            catch (Exception) { return default; }
         }
 
         public async Task<bool> PutAsync<T>(string endpoint, int id, T data)
         {
             var json = JsonSerializer.Serialize(data);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-            
             var response = await _httpClient.PutAsync($"{endpoint}/{id}", content);
             return response.IsSuccessStatusCode;
         }
@@ -114,11 +87,17 @@ namespace intproje.Mvc.Services
             return response.IsSuccessStatusCode;
         }
 
-        // Özel metodlar
+        // ÖZEL METODLAR - Sınıfın (ApiService) içinde kalmalı
         public async Task<List<T>?> GetApplicantsByJobAsync<T>(int jobId)
         {
             return await GetAsync<T>($"Applicants/ByJob/{jobId}");
         }
-    }
-}
 
+        // HomeController'da hata veren metod tam olarak buraya gelmeli
+        public async Task<List<JobPost>?> GetJobPostsAsync()
+        {
+            return await GetAsync<JobPost>("Jobs");
+        }
+
+    } // ApiService sınıfı burada biter
+} // Namespace burada biter
