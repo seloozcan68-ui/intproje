@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\seloo\\OneDrive\\Masaüstü\\intproje\\intproje.Mvc\\intproje.Mvc.csproj": {}
+    "C:\\Users\\seloo\\OneDrive\\Masaüstü\\24219043\\intproje\\intproje.Mvc\\intproje.Mvc.csproj": {}
   },
   "projects": {
-    "C:\\Users\\seloo\\OneDrive\\Masaüstü\\intproje\\intproje.Mvc\\intproje.Mvc.csproj": {
+    "C:\\Users\\seloo\\OneDrive\\Masaüstü\\24219043\\intproje\\intproje.Mvc\\intproje.Mvc.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\seloo\\OneDrive\\Masaüstü\\intproje\\intproje.Mvc\\intproje.Mvc.csproj",
+        "projectUniqueName": "C:\\Users\\seloo\\OneDrive\\Masaüstü\\24219043\\intproje\\intproje.Mvc\\intproje.Mvc.csproj",
         "projectName": "intproje.Mvc",
-        "projectPath": "C:\\Users\\seloo\\OneDrive\\Masaüstü\\intproje\\intproje.Mvc\\intproje.Mvc.csproj",
+        "projectPath": "C:\\Users\\seloo\\OneDrive\\Masaüstü\\24219043\\intproje\\intproje.Mvc\\intproje.Mvc.csproj",
         "packagesPath": "C:\\Users\\seloo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\seloo\\OneDrive\\Masaüstü\\intproje\\intproje.Mvc\\obj\\",
+        "outputPath": "C:\\Users\\seloo\\OneDrive\\Masaüstü\\24219043\\intproje\\intproje.Mvc\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
