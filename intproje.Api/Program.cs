@@ -3,11 +3,11 @@ using intproje.Api.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-[cite_start]// 1. Veritabanı (SQLite) Ayarı [cite: 27]
+// 1. Veritabanı (SQLite) Ayarı
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-[cite_start]// 2. Controller ve JSON Ayarları [cite: 30]
+// 2. Controller ve JSON Ayarları
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
@@ -15,19 +15,11 @@ builder.Services.AddControllers()
         options.JsonSerializerOptions.WriteIndented = true;
     });
 
-// 3. Swagger Servis Kaydı (Hata veren yer burasıydı)
+// 3. Swagger Servis Kaydı
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(c =>
-{
-    // Çakışmayı önlemek için 'Microsoft.OpenApi.Models' kısmını açıkça yazdık
-    c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo 
-    { 
-        Title = "İş Portalı API", 
-        Version = "v1" 
-    });
-});
+builder.Services.AddSwaggerGen();
 
-[cite_start]// 4. CORS Politikası [cite: 25]
+// 4. CORS Politikası
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowMvc", policy =>
